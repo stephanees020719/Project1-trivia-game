@@ -7,54 +7,107 @@
 const triviaQuestions = [
 {
     question:" What is Batman real name? ",
-    options:["Bruce Wayne ", "Clark Kent ", "Peter Parker ", "Tony stark " ],
-    answer: "Bruce Wayne"
+    answers:[
+      {text:"Bruce Wayne ", correct: true},
+       {text:"Clark Kent ", correct: false},
+        {text:"Peter Parker ", correct: false},
+         {text:"Tony stark ", correct: false}
+         ]
+   
 },
 
 {
     question: "What is the real name of Iron Man?",
-    options: [ "Tony Wayne ", "Tony Stark ", "Clark Kent ", "Howard Stark"],
-    answer: "Tony Stark"
+    answers: [
+      {text: "Tony Wayne ", correct : false},
+      {text: "Tony Stark ", correct: true},
+      {text: "Clark Kent ", correct: false},
+      {text: "Howard Stark", correct: false}
+    ]
+   
   },
   {
     question:"What is Captain America super Power?",
-    options:["super Strength ", "Super Fast ", "Fly " , "Super Genious"],
-    answer: "Super Strength"
+    answers:[
+      {text: "super Strength ", correct: true},
+      {text: "Super Fast ", correct: false},
+      {text: "Fly " , correct: false},
+      {text: "Super Genious", correct: false}
+    ]
+     
   },
   {
     question:"Where is the Time Stone hidden in Doctor Strange?",
-    options: ["The Star ", "Eye of Agamoto ", " Planet Earth ", "Avengers Building"],
-    answer: "Eye of Agamotto"
+    answers: [
+      {text: "The Star ", correct: false},
+      {text: "Eye of Agamoto ", correct: true},
+      {text: " Planet Earth ", correct: false},
+      {text: "Avengers Building", correct:false}
+    ]
+   
   },
   {
     question: "What species is Loki?",
-    options:["Frost Giant ", "Magician ", "Human ","Asfgardian "],
-    answer:  "Frost Giant"
+    answers:[
+      {text: "Frost Giant ", correct: true},
+      {text: "Magician ", correct: false},
+      {text: "Human ", correct: false},
+       {text: "Asfgardian ", correct: false}
+      ]
+   
   },
   {
     question: "What type of Doctor is Stephen Strange?",
-    options:[" Neurosurgeon ","Cardiologist ", "Trauma Surgeon ","Orthopedic surgeon "],
-    answer: " Neurosurgeon"
+    answers:[
+      {text:" Neurosurgeon ", correct: true},
+    {text:"Cardiologist ", correct: false},
+    {text: "Trauma Surgeon ", correct: false},
+    {text:"Orthopedic surgeon ", correct: false},
+  ]
+   
   },
   {
     question:"Who killed Tony Stark’s parents?",
-    options:["King Tachala ", "The Winter Soldier ","Rocket ","Thanos "],
-    answer: "The Winter Soldier"
+    answers:[
+      {text:"King Tachala ", correct: false},
+      {text: "The Winter Soldier ", correct: true},
+      {text: "Rocket ", correct: false},
+      {text: "Thanos ", correct: false}
+    ]
+   
   },
   {
     question: "What is the name of Iron Man’s loyal assistant?",
-    options:["Nathasha ", "Happy ", "Pepper Potts ","Aunt May "],
-    answer: "Pepper Potts"
+    
+    answers:[
+      {text:"Natasha ", correct: false},
+      {text: "Happy", correct: false},
+      {text: "Pepper Potts ", correct: true},
+      {text: "Aunt May ", correct: false}
+    ]
+    
   },
   {
     question: "Which villain got his distinct appearance from toxic chemicals at a plant?",
-    options:["Pengin ", "poison Yvy ", "Two Faced ","Joker"],
-    answer: "Joker"
+   
+    answers:[
+      {text:"Pengin ", correct: false},
+      {text: "Poison Yvy ", correct: false},
+      {text: "Two Faced ", correct: false},
+      {text: "Joker ", correct: true}
+    ]
+
   },
   {
     question: "Who is part of the justice leage?",
-    options:["Captain Marver ", "Thanos ", "Flash ", "Hayley Quinn"],
-    answer: "Flash"
+    
+
+    answers:[
+      {text:"Captain Marvel ", correct: false},
+      {text: "Thanos ", correct: false},
+      {text: "Flash ", correct: true},
+      {text: "Harley Quinn ", correct: false}
+    ]
   },
 
 ];
@@ -81,7 +134,7 @@ function startTriviaGame() {
   // Function to check the user's answer
   function checkAnswer(userAnswer) {
     const currentQuestion = triviaQuestions[currentQuestionIndex];
-    if (userAnswer === currentQuestion.answer) {
+    if (userAnswer === currentQuestion.answers) {
       console.log("Correct answer!");
       score++;
     } else {
