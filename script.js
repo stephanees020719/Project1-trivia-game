@@ -50,7 +50,7 @@ const questions = [
       { text: "Frost Giant ", correct: true },
       { text: "Magician ", correct: false },
       { text: "Human ", correct: false },
-      { text: "Asfgardian ", correct: false }
+      { text: "Asgardian ", correct: false }
     ]
 
   },

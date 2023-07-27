@@ -1,72 +1,86 @@
 * {
-    margin: 0;
-    padding: 0;
-    font-family: 'Courier New', Courier, monospace;
-    box-sizing: border;
-  }
+  margin: 0px;
+  padding: 0px;
+  font-family: 'Courier New', Courier, monospace;
+  box-sizing: border;
+}
+
+
+body {
+  background:lightblue;
+
+}
+
+.game {
+  background:white;
+  width: 400px;
+  height: 400px;
+  max-width: 600px;
+  margin: 100px auto 0;
+  border-radius: 10px;
+  padding: 30px;
+
+
+
+}
+
+
+h1{
+  text-align: center;
+}
+h2{
+  text-align:center;
+}
+img{
+
+  width: 120px;
+}
+
+#container{
   
-  
-  body {
-    background:lightblue;
-  
-  }
-  
-  .game {
-    background:white;
-    width: 100%;
-    max-width: 600px;
-    margin: 100px auto 0;
-    border-radius: 10px;
-    padding: 30px;
-  
-  
-  
-  }
+  display:flex;
+  flex-direction: in-line;
+  justify-content:center;
+  align-items: center
+
  
-  h1{
-    text-align: center;
-  }
-  h2{
-    text-align:center;
-  }
-  img{
+}
+
+#container2{
   
-    width: 120px;
-  }
+  display: flex;
+  flex-direction: in-line;
+ justify-content: center;
+  align-items: center;
+
+}
+
+
+.btn {
+  background: lightgray;
+  color: black;
+  width: 100%;
+  border: 1px solid black;
+  padding: 10px;
+  margin: 10px 0;
+  text-align: center;
+  border-radius: 4px;
+
+}
+
+#answer-buttons{
+  display: flex;
+  flex-direction: column;
   
-  #container{
-    
-    display:flex;
-    justify-content:center;
-    align-items: center
+
   
-   
-  }
-  
-  #container2{
-    
-    display: flex;
-   justify-content: center;
-    align-items: center;
-  
-  }
-  #answer-buttons{
-    display: flex;
-    flex-direction: column;
-  
-    
-  }
-  .btn{
-    border: 1px solid;
-  }
-  .correct {
-    background: blue;
-  }
-  
-  .incorrect {
-    background: red;
-  } 
-  
-  
-  
+}
+
+.correct {
+  background: blue;
+}
+
+.incorrect {
+  background: red;
+} 
   
