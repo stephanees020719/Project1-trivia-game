@@ -15,4 +15,6 @@ Show what you know about Marvel universe and DC. Score 1 point for every correct
 5. Add different categories.
 6. Add rounds to allow users to play several times.
 
+You can find most of my projects at:
 
+https://github.com/stephanees020719/Project1-trivia-game.git

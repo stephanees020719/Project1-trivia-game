@@ -115,9 +115,9 @@ const questions = [
 
 let currentQuestionIndex = 0; // Define my variables
 let score = 0;
-let winScore = false;
-let loseScore = false;
-let rounds = 0; //
+let winState = false;
+let loseState = false;
+let rounds = 0; 
 
 const questionElement = document.getElementById("question"); // Question element
 const answerButton = document.getElementById("answer-buttons"); // Buttons
@@ -173,10 +173,10 @@ function selectAnswer(a) {
   if (isCorrect) {
     selectedBtn.classList.add("correct");
     score++; // Added score
-    //if (score === questions.length) { //only win if all questions are correct
-  if (score >= 6 && rounds > 1) {  // wins 7 or more out of 10
+   //if (score === questions.length) { //only win if all questions are correct
+  if (score >= 7 && rounds > 1)  // wins 8 or more out of 10
       winState = true;
-    }
+  
   } else {
     selectedBtn.classList.add("incorrect");
     loseState = true;
