@@ -1,6 +1,6 @@
 
 
-//created a questions array
+//create a questions array
 
 const questions = [
   {
@@ -110,32 +110,34 @@ const questions = [
 
 ];
 
-let currentQuestionIndex = 0;      // define my variables 
+let currentQuestionIndex = 0; // Define my variables
 let score = 0;
+let winScore = false;
+let loseScore = false;
 
-
-const questionElement = document.getElementById("question");   //question element 
-const answerButton = document.getElementById("answer-buttons"); //buttons
+const questionElement = document.getElementById("question"); // Question element
+const answerButton = document.getElementById("answer-buttons"); // Buttons
 const nextButton = document.getElementById("next-btn");
 
-
-
-function startTriviaGame() {        //funtion to start the game 
+function startTrivia() {
+  // Function to start the game
   currentQuestionIndex = 0;
   score = 0;
+  winState = false;
+  loseState = false;
   nextButton.innerHTML = "Next";
   showQuestion();
 }
 
-function showQuestion() {        // show questions 
-  resetState();                   //reset the object 
+function showQuestion() {
+  // Show questions
+  resetState(); // Reset the object
   let currentQuestion = questions[currentQuestionIndex];
   let question1 = currentQuestionIndex + 1;
   questionElement.innerHTML = question1 + ". " + currentQuestion.question;
 
-
-
-  currentQuestion.answers.forEach(answer => {     //iterate 
+  currentQuestion.answers.forEach(answer => {
+    // Iterate
     const button = document.createElement("button");
     button.innerHTML = answer.text;
     button.classList.add("btn");
@@ -159,12 +161,14 @@ function selectAnswer(a) {
   const isCorrect = selectedBtn.dataset.correct === "true";
   if (isCorrect) {
     selectedBtn.classList.add("correct");
-    score++;    // added scored 
-
+    score++; // Added score
+    if (score === questions.length) {
+      winState = true;
+    }
   } else {
     selectedBtn.classList.add("incorrect");
+    loseState = true;
   }
-
 
   Array.from(answerButton.children).forEach(button => {
     if (button.dataset.correct === "true") {
@@ -177,8 +181,11 @@ function selectAnswer(a) {
 
 function showScore() {
   resetState();
-  
-  questionElement.innerHTML = `You scored ${score} out of ${questions.length}!`;
+  if (winState) {
+    questionElement.innerHTML = `Congratulations! You scored ${score} out of ${questions.length}! You won!`;
+  } else if (loseState) {
+    questionElement.innerHTML = `You scored ${score} out of ${questions.length}. You lost.`;
+  }
   nextButton.innerHTML = "Play Again";
   nextButton.style.display = "block";
 }
@@ -196,12 +203,8 @@ nextButton.addEventListener("click", () => {
   if (currentQuestionIndex < questions.length) {
     handleNextButton();
   } else {
-    startTriviaGame();
+    startTrivia();
   }
-
-
 });
 
-startTriviaGame(); 
-
-
+startTrivia();

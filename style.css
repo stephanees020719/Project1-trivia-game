@@ -67,13 +67,21 @@ img{
   border-radius: 4px;
 
 }
+#next-btn{
+  background: gray;
+ color: black;
+  width: 30%;
+  border: 1px solid black;
+  padding: 10px;
+  margin: 10px 0;
+  text-align: center;
+  border-radius: 4px;
 
+}
 #answer-buttons{
   display: flex;
   flex-direction: column;
-  
-
-  
+    
 }
 
 .correct {
