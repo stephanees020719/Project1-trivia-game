@@ -110,34 +110,42 @@ const questions = [
 
 ];
 
+
+
+
 let currentQuestionIndex = 0; // Define my variables
 let score = 0;
 let winScore = false;
 let loseScore = false;
+let rounds = 0; //
 
 const questionElement = document.getElementById("question"); // Question element
 const answerButton = document.getElementById("answer-buttons"); // Buttons
 const nextButton = document.getElementById("next-btn");
 
+
+ // Function to start the game
 function startTrivia() {
-  // Function to start the game
-  currentQuestionIndex = 0;
+ currentQuestionIndex = 0;
   score = 0;
   winState = false;
   loseState = false;
+  rounds++;     //
   nextButton.innerHTML = "Next";
   showQuestion();
 }
 
+
+// Function to display the current question
 function showQuestion() {
-  // Show questions
   resetState(); // Reset the object
   let currentQuestion = questions[currentQuestionIndex];
   let question1 = currentQuestionIndex + 1;
   questionElement.innerHTML = question1 + ". " + currentQuestion.question;
 
+   
+  
   currentQuestion.answers.forEach(answer => {
-    // Iterate
     const button = document.createElement("button");
     button.innerHTML = answer.text;
     button.classList.add("btn");
@@ -149,6 +157,7 @@ function showQuestion() {
   });
 }
 
+// Function to reset the state of the answer buttons
 function resetState() {
   nextButton.style.display = "none";
   while (answerButton.firstChild) {
@@ -156,13 +165,16 @@ function resetState() {
   }
 }
 
+
+// Function to handle the selection of an answer
 function selectAnswer(a) {
   const selectedBtn = a.target;
   const isCorrect = selectedBtn.dataset.correct === "true";
   if (isCorrect) {
     selectedBtn.classList.add("correct");
     score++; // Added score
-    if (score === questions.length) {
+    //if (score === questions.length) { //only win if all questions are correct
+  if (score >= 6 && rounds > 1) {  // wins 7 or more out of 10
       winState = true;
     }
   } else {
@@ -179,6 +191,8 @@ function selectAnswer(a) {
   nextButton.style.display = "block";
 }
 
+
+// Function to display the final score
 function showScore() {
   resetState();
   if (winState) {
@@ -208,3 +222,7 @@ nextButton.addEventListener("click", () => {
 });
 
 startTrivia();
+
+
+
+
